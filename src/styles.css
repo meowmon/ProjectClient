@@ -276,3 +276,32 @@ body {
 {
 
 }
+.section-view{
+  padding-top: 80px;
+}
+
+.font09
+  {
+    font-size: 0.9em;
+  }
+  .font117
+  {
+    font-size: 1.17em;
+  }
+  .font12
+  {
+    font-size: 1.2em;
+  }
+  .font15
+  {
+    font-size: 1.5em;
+  }
+  .font07
+  {
+    font-size: 0.7em !important;
+  }
+  .noti
+  {
+      height: 50px;
+  }
+  

@@ -1,0 +1,71 @@
+<div id="content">
+  <div class="section-view">
+    <div class="card-body card">
+      <form method="post" action="createUser">
+        <p style="color: red;"></p>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault01">Họ và tên</label>
+
+            <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="Họ và tên"
+              value="">
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault02">Mã giáo viên</label>
+            <input type="text" name="id" class="form-control" id="validationDefault02"
+              placeholder="G00000" value="">
+          </div>
+        </div>
+        <div class="form-row">
+          <!--    Set gender for user    -->
+          <div class="col-md-3 mb-3">
+            <label for="inputState">Giới tính</label>
+            <select id="inputState" class="form-control" name="gender">
+              <option value="Nam" selected>Nam</option>
+              <option value="Nữ	">Nữ</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault03">Ngày sinh</label>
+            <input type="date" class="form-control" id="validationDefault02" name="dobirth" placeholder="YYYY-MM-DD"
+              required title="Enter a date in this format YYYY-MM-DD" min="1988-01-01" />
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault03">Ngày bắt đâu làm việc</label>
+            <input type="date" class="form-control" id="validationDefault02" name="startdate" placeholder="YYYY-MM-DD"
+              required title="Enter a date in this format YYYY-MM-DD" min="1988-01-01" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-3 mb-4 mr-2">
+            <label for="validationDefault01">Bộ môn chuyên ngành : </label>
+            <input list="bro" class="form-control" name="subId" required>
+            <datalist id="bro">
+              <!-- <c:forEach items="${subjectList}" var="subject">
+              <option value="${subject.subId}">subject name</option>
+            </c:forEach> -->
+            </datalist>
+          </div>
+        </div>
+        <div class="form-row">
+          <!--    Set role for user    -->
+          <div class="col-md-3 mb-3">
+            <label for="inputState">Đội ngũ</label>
+            <select id="inputState" class="form-control" name="role">
+              <option value="3" selected>Giáo viên</option>
+              <option value="2">Ban giám hiệu</option>
+              <option value="1">Nhân viên y tế</option>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3 text-thongbao">
+            * Ban giám hiệu : Có thêm chức năng xem Thống kê báo cáo sức khỏe của Hệ thống.
+          </div>
+        </div>
+        <a href="giaovien.html"><button class="btn btn-default" type="button">Hủy bỏ</button></a>
+        <button class="btn btn-primary" type="submit">Thêm mới</button>
+      </form>
+    </div>
+  </div>
+</div>

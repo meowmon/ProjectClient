@@ -1,0 +1,136 @@
+:host {
+    width: calc(100% - 250px);
+  }
+  .project-tab {
+    padding: 10%;
+    margin-top: -8%;
+}
+.project-tab #tabs{
+    background: #007b5e;
+    color: #eee;
+}
+.project-tab #tabs h6.section-title{
+    color: #eee;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #402963;
+    background-color: transparent !important;
+    border-color: transparent transparent #f3f3f3 !important;
+    border-bottom: 8px solid #563d7c !important;
+    font-size: 1.26em;
+    font-weight: normal;
+}
+.project-tab .nav-link {
+    border: 1px solid transparent !important;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0062cc;
+    font-size: 16px;
+    font-weight: 600;
+}
+.project-tab .nav-link:hover {
+    border: none;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}
+.project-tab a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.nav-tabs .nav-link {
+    border: 1px solid #00000014 !important;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+#tabs .nav-tabs {
+    border-bottom: 3px solid #563d7c;
+}
+/* Style buttons */
+td .btn1 {
+    background-color: #7453a7; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn1:hover {
+    background-color: #563d7c;
+    color: #f9f9f9;
+  }
+
+  td .btn2 {
+    background-color: #e13535; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn2:hover {
+    background-color: #c02e2e;
+    color: #f9f9f9;
+  }
+
+  td .btn3 {
+    background-color: #ffc107; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn3:hover {
+    background-color: #c69500;
+    color: #f9f9f9;
+  }
+
+  td .btn4 {
+    background-color: #1fa67a; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn4:hover {
+    background-color: #1a7a5a;
+    color: #f9f9f9;
+  }
+.search-container button{
+    float: right;
+    padding: 6px 10px;
+    margin: 5px 5px 3px 8px;
+    background: #ddd;
+    font-size: 19px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+ .search-container input[type=text] {
+    padding: 6px;
+    width: 25%;
+    margin-top: 5px;
+    font-size: 17px;
+    border: none;
+  }
