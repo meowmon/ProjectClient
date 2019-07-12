@@ -14,6 +14,7 @@ import { RecordDetailComponent } from './views/record-detail/record-detail.compo
 import { RecordFormComponent } from './forms/record-form/record-form.component';
 import { MedicalFileComponent } from './views/medical-file/medical-file.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

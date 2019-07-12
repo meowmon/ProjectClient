@@ -7,7 +7,6 @@
       </div>
       <div class="card-body">
         <div class="table-responsive">
-          <form>
 
             <div class="form-row">
               <div class="col-md-3 mb-2 font117">
@@ -16,18 +15,18 @@
             </div>
             <div class="border-gray2 mb-4">
               <div class="form-row mar-left-05">
-                <div class="col-md-2 mb-3">
+                <div class="col-md-2 mb-3 font09">
                   <label for="validationDefault02">Nhập mã giáo viên : </label>
                 </div>
 
                 <div class="col-md-3 mb-3">
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="Mã giáo viên" value=""
+                  <input type="text" class="form-control" id="validationDefault02" placeholder="Mã giáo viên" [(ngModel)]="id" value=""
                     required>
                 </div>
                 <div class="col-md-1 mb-3">
                 </div>
                 <div class="col-md-3 mb-3">
-                  <button class="btn btn-info" type="submit">Kiểm tra</button>
+                  <button class="btn btn-info" type="button"  (click)="checkUser()">Kiểm tra</button>
                 </div>
               </div>
             </div>
@@ -36,99 +35,105 @@
                 <label for="validationDefault02">Bước 2 : Kiểm tra thông tin cá nhân</label>
               </div>
             </div>
-
+            <form [formGroup]="userInfo">
             <div class="border-gray2 mb-4">
               <div class="form-row mar-left-05">
 
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3 font09">
                   <label for="validationDefault03">Họ và tên</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="" value="Mark Otto"
+                  <input type="text" class="form-control" id="validationDefault02" formControlName="name" placeholder=""
                     readonly required>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3 font09">
                   <label for="inputState">Giới tính</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="" value="Nam" readonly
+                  <input type="text" class="form-control" id="validationDefault02" formControlName="gender" placeholder="" readonly
                     required>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-3 mb-3 font09">
                   <label for="validationDefault03">Ngày sinh</label>
-                  <input type="date" class="form-control" id="validationDefault02" placeholder="" value="1986-03-12"
+                  <input type="date" class="form-control" id="validationDefault02" formControlName="bday" placeholder="" 
                     readonly required>
                 </div>
 
               </div>
               <div class="form-row mar-left-05">
 
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3 font09">
                   <label for="inputState">Bộ môn</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="" value="Bộ môn 1"
-                    readonly required>
-                </div>
-                <div class="col-md-4 mb-3">
-                  <label for="inputState">Khoa</label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="" value="Khoa 1"
+                  <input type="text" class="form-control" id="validationDefault02" formControlName="bo_mon" placeholder="" 
                     readonly required>
                 </div>
               </div>
             </div>
+            </form>
             <div class="form-row">
-              <div class="col-md-3 mb-2 font117">
+              <div class="col-md-12 mb-2 font117">
                 <label for="validationDefault02">Bước 3 : Thông tin khám</label>
               </div>
             </div>
+            <form [formGroup]="requestInfo" (submit)="OnSubmit()">
             <div class="border-gray2 mb-4">
               <div class="form-row mar-left-05">
-                <div class="col-md-3 mb-4">
+                <div class="col-md-3 mb-4 font09">
                   <label for="validationDefault03">Đăng ký ngày khám</label>
-                  <input type="date" class="form-control" id="validationDefault02" placeholder="" value="" required>
+                  <input type="date" name="bday" max="3000-12-31" formControlName="date" min="1000-01-01" class="form-control" required>
+                  <div
+                    *ngIf="(submitted || requestInfo.get('bday')?.touched || requestInfo.get('bday')?.dirty) && requestInfo.get('bday')?.errors "
+                    class="error">
+                    <div *ngIf="requestInfo.get('bday')?.errors?.required" style="color:red">Bạn phải chọn ngày khám</div>
+                  </div>
                 </div>
 
 
-                <div class="col-md-3 mb-4">
+                <div class="col-md-3 mb-4 font09">
                   <label for="inputState">Ca khám</label>
-                  <select id="inputState" class="form-control">
-                    <option selected>Ca sáng (8h - 10h30)</option>
-                    <option>Ca chiều (13h - 16h)</option>
-                    <option>Khám ngoài giờ (Liên hệ)</option>
+                  <select class="form-control" id="course" formControlName="time" (click)="getCourse()">
+                    <option selected value={{timeSession[0]}}>Ca sáng (8h - 10h30)</option>
+                    <option value={{timeSession[1]}}>Ca chiều (13h - 16h)</option>
+                    <option value={{timeSession[2]}}>Khám ngoài giờ (Liên hệ)</option>
                   </select>
                 </div>
               </div>
-              <div class="form-row mar-left-05">
+              <div class="form-row mar-left-05 font09">
 
                 <label for="">Chọn hình thức khám</label>
               </div>
               <div class="form-row mar-left-05">
-                <div class="col-md-3 boxes">
-
-                  <input type="checkbox" id="box-1" checked disabled>
-                  <label for="box-1">Khám nội tổng quát</label>
-
-                  <input type="checkbox" id="box-2">
-                  <label for="box-2">Xét nghiệm máu cơ bản</label>
-
-                  <input type="checkbox" id="box-3">
-                  <label for="box-3">Siêu âm</label>
-
-                  <input type="checkbox" id="box-4">
-                  <label for="box-4">Chụp X-Quang phổi</label>
+                <div class="col-md-4 boxes">
+                  <div class="form-check">
+                    <input type="checkbox" id="box-1" checked disabled>
+                    <label class="info-label" for="box-1">Khám nội tổng quát</label>
+                    <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip" width="15em"
+                      height="15em"
+                      title="Kiểm tra huyết áp, cân nặng, chiều cao, nội tiêu hóa, nội hô hấp; nội thần kinh; nội nội tiết; nội cơ xương khớp; dịch vụ khám và tầm soát nguy cơ ung thư…  có thể lựa chọn dịch vụ khám cụ thể. Chi phí : miễn phí"
+                      aria-describedby="tooltip84459">
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="box-2" formControlName="xnghiem" (click)="xnghiem()">
+                    <label class="info-label" for="box-2">Xét nghiệm máu cơ bản</label>
+                    <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip" width="15em"
+                      height="15em" title="Xét nghiệm công thức máu, đường máu, mỡ máu, men gan… | Chi phí : 80.000 vnđ"
+                      aria-describedby="tooltip84459">
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="box-3"  formControlName="sieuam" (click)="sieuam()">
+                    <label class="info-label" for="box-3">Siêu âm</label>
+                    <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip" width="15em"
+                      height="15em"
+                      title="Thăm khám các bệnh lý như: u, viêm, dị dạng...tại các vị trí như ổ bụng, tiểu khung, gan, mật, thận... | Chi phí : 120.000 vnđ ">
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="box-4"  formControlName="xquang" (click)="xquang()">
+                    <label class="info-label" for="box-4">Chụp X-Quang phổi</label>
+                    <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip" width="15em"
+                      height="15em"
+                      title="Xác định được vị trí tổn thương vào thùy hoặc phân thùy hay dấu hiệu nghi ngờ các bệnh bệnh ở phổi, lồng ngực hay phế quản | Chi phí : 150.000 vnđ">
+                  </div>
                 </div>
 
-                <div class="col-md-1 boxes">
-                  <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip"
-                    title="Kiểm tra huyết áp, cân nặng, chiều cao, nội tiêu hóa, nội hô hấp; nội thần kinh; nội nội tiết; nội cơ xương khớp; dịch vụ khám và tầm soát nguy cơ ung thư…  có thể lựa chọn dịch vụ khám cụ thể. Chi phí : 200.000.vnđ"
-                    aria-describedby="tooltip84459">
-                  <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip"
-                    title="Xét nghiệm công thức máu, đường máu, mỡ máu, men gan… | Chi phí : 120.000. vnđ"
-                    aria-describedby="tooltip84459">
-                  <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip"
-                    title="Thăm khám các bệnh lý như: u, viêm, dị dạng...tại các vị trí như ổ bụng, tiểu khung, gan, mật, thận... | Chi phí : 250.000 vnđ ">
-                  <img src="/assets/img/information.png" data-placement="right" class="info-icon" data-toggle="tooltip"
-                    title="Xác định được vị trí tổn thương vào thùy hoặc phân thùy hay dấu hiệu nghi ngờ các bệnh bệnh ở phổi, lồng ngực hay phế quản | Chi phí : 175.000 vnđ">
-                </div>
-
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 font09">
                   <label for="validationDefault01">Mô tả triệu chứng</label>
-                  <textarea class="form-control height8" aria-label="Mô tả"></textarea>
+                  <textarea class="form-control height8" formControlName="descrip" aria-label="Mô tả"></textarea>
                 </div>
 
               </div>
@@ -137,23 +142,22 @@
             </div>
 
             <div class="line_20"> </div>
-            <div class="form-row mar-left-05 al_r">
-              <div class="col-md-12 mb-4 font117">
-                <label for="validationDefault03">Chi phí dự tính : 123,000 vnđ</label>
+            <div class="form-row ">
+              <div class="col-md-12 d-flex justify-content-end font117">
+                <label for="validationDefault03">Chi phí dự tính : {{predictFee}} VNĐ</label>
               </div>
             </div>
+            </form> 
 
 
 
-            <div class="col-md-12 mb-3 al_r">
+            <div class="col-md-12 mb-3 d-flex justify-content-end">
 
-              <button class="btn btn-light" type="button">Hủy bỏ</button>
+              <button class="btn btn-light mar-left-05" type="button">Hủy bỏ</button>
 
-              <button class="btn btn-success mar-left-05" type="submit">Đăng ký</button>
+              <button class="btn btn-success mar-left-05" type="submit" (click)="OnSubmit()">Đăng ký</button>
 
             </div>
-
-          </form>
 
         </div>
       </div>
