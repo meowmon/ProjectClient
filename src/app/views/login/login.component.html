@@ -1,12 +1,27 @@
-<div class="login-clean" style="padding:60px;">
-  <form action="Login" method="post" style="height:543px;">
-    <h2 class="sr-only">Login Form</h2>
-    <div class="illustration"><img src="assets/img/LogoTLU.png" style="width:244px;margin:0px;height:244px;"></div>
-    <div class="form-group"><input class="form-control" id="username" type="username" name="username"
-        placeholder="Username"></div>
-    <div class="form-group"><input class="form-control" id="password" type="password" name="password"
-        placeholder="Password"></div>
-    <p style="color: red;"></p>
+<div class="mx-auto py-5 col-md-4">
+  <form [formGroup]="loginForm" (submit)="doLogin()" class="mx-auto">
+    <h2 class="sr-only text-center">Login Form</h2>
+    <div class="d-flex justify-content-center p-3"><img src="assets/img/LogoTLU.png" style="width:244px;height:244px;"></div>
+    
+    <div class="form-group">
+      <input class="form-control" type="username" formControlName="username" placeholder="Mã nhân viên. Ví dụ: G12345">
+      <div
+        *ngIf="(submitted || loginForm.controls.username?.touched || loginForm.controls.username?.dirty) && loginForm.controls.username?.errors "
+        class="error">
+        <div *ngIf="loginForm.controls.username.errors.required" style="color:red">Bạn phải nhập mã nhân viên để đăng nhập
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="password" formControlName="password" placeholder="Mật khẩu">
+      <div
+        *ngIf="(submitted || loginForm.controls.password?.touched || loginForm.controls.password?.dirty) && loginForm.controls.password?.errors "
+        class="error">
+        <div *ngIf="loginForm.controls.password.errors.required" style="color:red">Bạn phải nhập mật khẩu
+        </div>
+      </div>
+    </div>
+    <p style="color: red;" class="text-center">{{message}}</p>
     <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Đăng nhập</button></div><a href="#"
       class="forgot">Quên mật khẩu ?</a>
   </form>

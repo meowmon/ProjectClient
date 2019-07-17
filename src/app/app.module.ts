@@ -1,3 +1,8 @@
+import { RequestService } from './common/services/request.service';
+import { NotifyService } from './common/services/notify.service';
+import { FilesService } from './common/services/files.service';
+import { UserService } from './common/services/user.service';
+import { ConstantsService } from './common/services/constants.service';
 import { HeaderComponent } from './templates/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -39,7 +44,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ConstantsService,
+    UserService,
+    FilesService,
+    NotifyService,
+    RequestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

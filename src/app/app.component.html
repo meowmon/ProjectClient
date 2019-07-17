@@ -1,21 +1,24 @@
-<div>
-    <app-header></app-header>
-     
-         <div class="wrapper">
-            
-             <!-- Sidebar  -->
-             <app-navbar></app-navbar>
-     
-             <!-- Page Content  -->
-             
-               <!-- Main  --> 
-               <!-- <app-content></app-content> -->
-               <section>
-               <router-outlet></router-outlet>
-            </section>
-  
-         </div>
-  
-        </div>
-       
-        <app-footer></app-footer>
+<div *ngIf="user; else login">
+  <app-header></app-header>
+
+  <div class="wrapper">
+
+    <!-- Sidebar  -->
+    <app-navbar></app-navbar>
+
+    <!-- Page Content  -->
+
+    <!-- Main  -->
+    <!-- <app-content></app-content> -->
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+
+  </div>
+</div>
+<ng-template #login>
+  <div class="wrapper">
+    <app-login class="container-fluid"></app-login>
+  </div>
+</ng-template>
+<app-footer></app-footer>
