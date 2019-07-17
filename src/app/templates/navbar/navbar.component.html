@@ -1,94 +1,35 @@
-<div class="d-block px-3 py-1 text-center text-bold text-white old-bv"></div> 
-     <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent no-bg sticky-top  ">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <div class="navbar-toggle d-inline">
-              <button type="button" class="navbar-toggler">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-             <button type="button" id="sidebarCollapse" class="btn more">
-                        <i class="fas fa fa-server"></i>
-                        </button>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-            <span class="navbar-toggler-bar navbar-kebab"></span>
-          </button>
+<nav id="sidebar" style="height: auto !important;">
+           
+  <div id="sidebar-cover">
+      <div class="sidebar-header">
+              <a href=""><h3>Health care</h3></a> 
+      </div>
 
-          <div class="collapse navbar-collapse" id="navigation">
-            <ul class="navbar-nav ml-auto ">
+      <ul class="list-unstyled components">
+        <li>
+          <a class="nav-item active" routerLink="">Quản lý Giáo viên</a>
+      </li>
+      <li>
+          <a class="nav-item active" routerLink="/medicalFiles">Quản lý Hồ sơ khám bệnh</a>
+      </li>
+      <li>
+          <a class="nav-item active" routerLink="/request">Quản lý lịch hẹn khám</a>
+      </li>
+      <li>
+          <a class="nav-item active" routerLink="">Thống kê báo cáo</a>
+      </li>
+    </ul>
 
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="photo">
-                    <img src="assets/img/anime3.png">
-                  </div>
-                 
-                  <p class="d-lg-none">
-                    Log out
-                  </p>
-                </a>
-                <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Profile</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Settings</a>
-                  </li>
-                  <div class="dropdown-divider"></div>
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Log out</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="separator d-lg-none"></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-    <div class="wrapper">
-       
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-        
-        <div id="sidebar-cover">
-            <div class="sidebar-header">
-                    <a href=""><h3>Health care</h3></a> 
-            </div>
-
-            <ul class="list-unstyled components">
-                <p class="head-title">Thăng Long University</p>
-                <li>
-                    <a class="nav-item active" routerLink="">Quản lý Giáo viên</a>
-                </li>
-                <li>
-                    <a class="nav-item active" routerLink="/medicalFiles">Quản lý Hồ sơ khám bệnh</a>
-                </li>
-                <li>
-                    <a class="nav-item active" routerLink="/request">Quản lý lịch hẹn khám</a>
-                </li>
-                <li>
-                    <a class="nav-item active" routerLink="">Thống kê báo cáo</a>
-                </li>
-            </ul>
-
-            <ul class="list-unstyled CTAs">
-              <div>
-                  <img src="assets/img/LogoTLU.png" class="container-fluid mb-3 mt--2"/>
-               </div>
-                <li>
-                    <a href="#" class="download">Trợ giúp</a>
-                </li>
-                <li>
-                    <a href="#" class="article">Đội ngũ thiết kế</a>
-                </li>
-            </ul>
-        </div>
-        </nav>
-            
-</div>
+      <ul class="list-unstyled CTAs">
+        <div>
+            <img src="/assets/img/LogoTLU.png" class="container-fluid mb-3 mt--2">
+         </div>
+          <li>
+              <a href="#" class="download">Trợ giúp</a>
+          </li>
+          <li>
+              <a href="#" class="article">Đội ngũ thiết kế</a>
+          </li>
+      </ul>
+  </div>
+  </nav>

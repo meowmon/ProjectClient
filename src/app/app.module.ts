@@ -1,3 +1,4 @@
+import { HeaderComponent } from './templates/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { NavbarComponent } from './templates/navbar/navbar.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { UsersComponent } from './views/users/users.component';
 import { RequestsComponent } from './views/requests/requests.component';
-import { RequestFormComponent } from './forms/requestform/requests.component'; 
+import { RequestFormComponent } from './forms/requestform/requests.component';
 import { LoginComponent } from './views/login/login.component';
 import { BloodExamComponent } from './forms/blood-exam/blood-exam.component';
 import { RecordDetailComponent } from './views/record-detail/record-detail.component';
@@ -30,6 +31,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RequestFormComponent,
     MedicalFileComponent,
     UserFormComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

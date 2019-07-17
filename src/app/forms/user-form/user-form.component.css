@@ -1,0 +1,78 @@
+:host{
+    height: 100%;
+    width: calc(100% - 250px);
+}
+
+/* Darker background on mouse-over */
+td .btn1:hover {
+    background-color: #563d7c;
+    color: #f9f9f9;
+  }
+
+  td .btn2 {
+    background-color: #e13535; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn2:hover {
+    background-color: #c02e2e;
+    color: #f9f9f9;
+  }
+
+  td .btn3 {
+    background-color: #ffc107; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn3:hover {
+    background-color: #c69500;
+    color: #f9f9f9;
+  }
+
+  td .btn4 {
+    background-color: #1fa67a; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn4:hover {
+    background-color: #1a7a5a;
+    color: #f9f9f9;
+  }
+
+  td .btn5 {
+    background-color: #1f4aa6; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 3px 17px; /* Some padding */
+    font-size: 13px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin:-5px 0px;
+    border-radius: .25rem;
+  }
+  
+  /* Darker background on mouse-over */
+  td .btn5:hover {
+    background-color: #183980;
+    color: #f9f9f9;
+  }

@@ -1,26 +1,25 @@
 <div id="content">
   <div class="section-view">
     <div class="card-body card">
-      <form method="post" action="createUser">
+      <form [formGroup]="userForm" (submit)="onSubmit()" >
         <p style="color: red;"></p>
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="validationDefault01">Họ và tên</label>
 
-            <input type="text" name="name" class="form-control" id="validationDefault01" placeholder="Họ và tên"
-              value="">
+            <input type="text" name="name" class="form-control" formControlName="name"  placeholder="Họ và tên">
           </div>
           <div class="col-md-3 mb-3">
             <label for="validationDefault02">Mã giáo viên</label>
-            <input type="text" name="id" class="form-control" id="validationDefault02"
-              placeholder="G00000" value="">
+            <input type="text" name="id" class="form-control" formControlName="code"
+              placeholder="G00000">
           </div>
         </div>
         <div class="form-row">
           <!--    Set gender for user    -->
           <div class="col-md-3 mb-3">
             <label for="inputState">Giới tính</label>
-            <select id="inputState" class="form-control" name="gender">
+            <select id="inputState" class="form-control" formControlName="gender">
               <option value="Nam" selected>Nam</option>
               <option value="Nữ	">Nữ</option>
             </select>
@@ -29,34 +28,28 @@
         <div class="form-row">
           <div class="col-md-3 mb-3">
             <label for="validationDefault03">Ngày sinh</label>
-            <input type="date" class="form-control" id="validationDefault02" name="dobirth" placeholder="YYYY-MM-DD"
+            <input type="date" class="form-control" id="validationDefault02" formControlName="bday" placeholder="YYYY-MM-DD"
               required title="Enter a date in this format YYYY-MM-DD" min="1988-01-01" />
           </div>
           <div class="col-md-3 mb-3">
-            <label for="validationDefault03">Ngày bắt đâu làm việc</label>
-            <input type="date" class="form-control" id="validationDefault02" name="startdate" placeholder="YYYY-MM-DD"
-              required title="Enter a date in this format YYYY-MM-DD" min="1988-01-01" />
+            <label for="validationDefault03">Số điện thoại</label>
+            <input type="text" class="form-control" formControlName="phone" />
           </div>
         </div>
         <div class="form-row">
           <div class="col-md-3 mb-4 mr-2">
-            <label for="validationDefault01">Bộ môn chuyên ngành : </label>
-            <input list="bro" class="form-control" name="subId" required>
-            <datalist id="bro">
-              <!-- <c:forEach items="${subjectList}" var="subject">
-              <option value="${subject.subId}">subject name</option>
-            </c:forEach> -->
-            </datalist>
+            <label >Bộ môn chuyên ngành : </label>
+            <select id="inputState" class="form-control" formControlName="bo_mon">
+              <option *ngFor="let bomon of bo_mons" value="{{bo_mon.id}}" >{{bo_mon.name}}</option>
+            </select>
           </div>
         </div>
         <div class="form-row">
           <!--    Set role for user    -->
           <div class="col-md-3 mb-3">
             <label for="inputState">Đội ngũ</label>
-            <select id="inputState" class="form-control" name="role">
-              <option value="3" selected>Giáo viên</option>
-              <option value="2">Ban giám hiệu</option>
-              <option value="1">Nhân viên y tế</option>
+            <select id="inputState" class="form-control" name="role" formControlName="role">
+              <option *ngFor="let role of roles" value="{{role.value}}">{{role.name}}</option>
             </select>
           </div>
           <div class="col-md-4 mb-3 text-thongbao">

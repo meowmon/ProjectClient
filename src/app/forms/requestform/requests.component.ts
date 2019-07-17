@@ -8,15 +8,15 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./requests.component.css']
 })
 export class RequestFormComponent implements OnInit {
-  id:number;
+  id: number;
   submitted = false;
   userInfo: FormGroup;
-  date = new Date(); 
+  date = new Date();
   requestInfo: FormGroup;
   gender: string[] = ['Nam', 'Nữ'];
-  timeSession: string[] = ['Sáng' , 'Chiều' , 'Ngoài giờ'];
+  timeSession: string[] = ['Sáng', 'Chiều', 'Ngoài giờ'];
   valid = false;
-  predictFee = 0 ;
+  predictFee = 0;
   constructor(
     private fb: FormBuilder,
     // private route: ActivatedRoute, 
@@ -42,7 +42,7 @@ export class RequestFormComponent implements OnInit {
       xquang: [false],
       fee: [0],
       descrip: [''],
-    },Validators.required);
+    }, Validators.required);
 
     console.log(formatDate(this.date, 'dd-MM-yyyy', 'en-us', '+0700'))
     this.requestInfo.patchValue({
@@ -50,29 +50,29 @@ export class RequestFormComponent implements OnInit {
     })
   }
 
-  checkUser(){
+  checkUser() {
     console.log(this.id)
 
   }
-  getCourse(){
+  getCourse() {
     console.log(this.requestInfo.value)
   }
-  xnghiem(){
-    if(!this.requestInfo.controls.xnghiem.value){
+  xnghiem() {
+    if (!this.requestInfo.controls.xnghiem.value) {
       this.predictFee = this.predictFee + 80000;
-    }else{
+    } else {
       this.predictFee = this.predictFee - 80000;
     }
 
   }
-  sieuam(){
+  sieuam() {
     if (!this.requestInfo.controls.sieuam.value) {
       this.predictFee = this.predictFee + 120000;
     } else {
       this.predictFee = this.predictFee - 120000;
     }
   }
-  xquang(){
+  xquang() {
     if (!this.requestInfo.controls.xquang.value) {
       this.predictFee = this.predictFee + 150000;
     } else {
@@ -80,7 +80,7 @@ export class RequestFormComponent implements OnInit {
     }
   }
 
-  OnSubmit(){
+  OnSubmit() {
     console.log(this.userInfo.value)
     console.log(this.requestInfo.value)
 
