@@ -28,7 +28,7 @@
         <div class="form-row">
           <div class="col-md-3 mb-3">
             <label for="validationDefault03">Ngày sinh</label>
-            <input type="date" class="form-control" id="validationDefault02" formControlName="bday" placeholder="YYYY-MM-DD"
+            <input type="date" class="form-control" id="validationDefault02" formControlName="birthday" placeholder="YYYY-MM-DD"
               required title="Enter a date in this format YYYY-MM-DD" min="1988-01-01" />
           </div>
           <div class="col-md-3 mb-3">
@@ -39,8 +39,8 @@
         <div class="form-row">
           <div class="col-md-3 mb-4 mr-2">
             <label >Bộ môn chuyên ngành : </label>
-            <select id="inputState" class="form-control" formControlName="bo_mon">
-              <option *ngFor="let bomon of bo_mons" value="{{bo_mon.id}}" >{{bo_mon.name}}</option>
+            <select id="inputState" class="form-control" formControlName="id_bomon">
+              <option *ngFor="let bomon of bo_mons" value="{{bomon.id}}"  >{{bomon.name}}</option>
             </select>
           </div>
         </div>

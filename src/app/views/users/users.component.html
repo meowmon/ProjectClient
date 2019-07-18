@@ -77,132 +77,23 @@
               <th scope="col">Mã giáo viên</th>
               <th scope="col">Giới tính</th>
               <th scope="col">Ngày sinh</th>
-              <th scope="col">Khoa</th>
               <th scope="col">Bộ môn</th>
-              <th scope="col">Trạng thái</th>
               <th scope="col">Chi tiết</th>
               <th scope="col">Hồ sơ khám</th>
               <th scope="col">Sửa</th>
-              <th scope="col">Xóa</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark Otto</td>
-                <td>A121</td>
-                <td>Nam</td>
-                <td>1/1/1981</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
+              <tr *ngFor="let user of listUsers ; index as i">
+                <td>{{user.name}}</td>
+                <td>{{user.code}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{user.birthday}}</td>
+                <td>{{user.bo_mon}}</td>
                 <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
                 <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
+                <td><button class="btn3"><i class="fa fa-edit medkit"></i></button></td> <!-- button Sửa -->
               </tr>
-              <tr>
-                <td>Jacob Thornton</td>
-                <td>A122</td>
-                <td>Nam</td>
-                <td>1/2/1982</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Larry the Bird</td>
-                <td>A123</td>
-                <td>Nữ</td>
-                <td>1/3/1983</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Mark Otto</td>
-                <td>A121</td>
-                <td>Nam</td>
-                <td>1/1/1981</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Jacob Thornton</td>
-                <td>A122</td>
-                <td>Nam</td>
-                <td>1/2/1982</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Larry the Bird</td>
-                <td>A123</td>
-                <td>Nữ</td>
-                <td>1/3/1983</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Mark Otto</td>
-                <td>A121</td>
-                <td>Nam</td>
-                <td>1/1/1981</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Jacob Thornton</td>
-                <td>A122</td>
-                <td>Nam</td>
-                <td>1/2/1982</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
-              <tr>
-                <td>Larry the Bird</td>
-                <td>A123</td>
-                <td>Nữ</td>
-                <td>1/3/1983</td>
-                <td>Kinh tế - Quản lý</td>
-                <td>Quản trị du lịch</td>
-                <td>Bình thường</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><a href="sua-giaovien.html"><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                <td><a href="#"><i class="fas fa fa-trash"></i></a></td> <!-- button Xóa -->
-              </tr>
+              
 
             </tbody>
           </table>

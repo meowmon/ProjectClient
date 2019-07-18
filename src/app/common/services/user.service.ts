@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import user from '../config/user.js';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +10,42 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   userUrl ='http://localhost:8080/users/'
   boMonUrl ='http://localhost:8080/BoMons/'
-  constructor(private http: HttpClient) {}
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
 
-  doLogin(user){
-    return this.http.post(this.userUrl + "login", {
-      name: user.username,
-      password: user.password
-    }, { observe: 'response' })
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  public get currentUserValue() {
+    return this.currentUserSubject.value;
   }
 
+  doLogin(user){
+    return this.http.post<user>(this.userUrl + "login", user, { observe: 'response' }).pipe(map(user => {
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      if(user){
+        if((user.body.role === "nv_yte")){
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        }
+      }
+      return user;
+    }));
+  }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
+  
   doChangePassword(input){
     return this.http.post(this.userUrl + "changepass", input ,{ observe: 'response'})
   }
 
   getAllUser(){
-    return this.http.get(this.userUrl)
+    return this.http.get(this.userUrl,{ observe: 'response' })
   }
 
   createUser(input){
@@ -37,6 +61,6 @@ export class UserService {
   }
 
   getBoMon(){
-    return this.http.get(this.boMonUrl)
+    return this.http.get(this.boMonUrl, { observe: 'response' })
   }
 }

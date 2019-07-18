@@ -10,5 +10,6 @@ export class ConstantsService {
 
   setUser(inputUser){
     this.user = inputUser
+    console.log(this.user)
   }
 }

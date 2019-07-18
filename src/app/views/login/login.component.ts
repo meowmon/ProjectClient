@@ -3,6 +3,7 @@ import { UserService } from './../../common/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private constant: ConstantsService
+    private constant: ConstantsService,
+    private route: ActivatedRoute,
+    private router: Router, 
   ) { }
 
   ngOnInit() {
@@ -30,12 +33,18 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     console.log(this.loginForm.value)
     this.userService.doLogin(this.loginForm.value).subscribe(response => {
-      this.constant.setUser(response.body)
+      console.log(response)
+      if(response.body.role !== "nv_yte"){
+        this.message = "Chức năng dành cho bạn chưa được phát triển, vui lòng truy cập lại sau"
+      }
+      // window.location.reload()
+      
+
     },
     (err : HttpErrorResponse) => {
       console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+      this.message = "Mã nhân viên hoặc mật khẩu sai"
     }
-    )
-    
+    );
   }
 }

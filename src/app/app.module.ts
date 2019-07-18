@@ -21,6 +21,7 @@ import { RecordFormComponent } from './forms/record-form/record-form.component';
 import { MedicalFileComponent } from './views/medical-file/medical-file.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     ConstantsService,

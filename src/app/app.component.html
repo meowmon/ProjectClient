@@ -1,10 +1,10 @@
-<div *ngIf="user; else login">
-  <app-header></app-header>
+
+  <app-header *ngIf = "user"></app-header>
 
   <div class="wrapper">
 
     <!-- Sidebar  -->
-    <app-navbar></app-navbar>
+    <app-navbar *ngIf = "user"></app-navbar>
 
     <!-- Page Content  -->
 
@@ -15,10 +15,9 @@
     </section>
 
   </div>
-</div>
-<ng-template #login>
+<!-- <ng-template #login>
   <div class="wrapper">
     <app-login class="container-fluid"></app-login>
   </div>
-</ng-template>
+</ng-template> -->
 <app-footer></app-footer>
