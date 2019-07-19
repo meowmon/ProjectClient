@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RequestService {
-  url = 'http://localhost:8080/requests'
+  url = 'http://localhost:8080/Requests'
   constructor(
     private http: HttpClient
   ) { }

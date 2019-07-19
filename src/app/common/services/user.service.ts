@@ -57,7 +57,7 @@ export class UserService {
   }
 
   getUser(id){
-    return this.http.get(this.userUrl + id, { observe: 'response' })
+    return this.http.get<user>(this.userUrl +"code/"+ id, { observe: 'response' })
   }
 
   getBoMon(){

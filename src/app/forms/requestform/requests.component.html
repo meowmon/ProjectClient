@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-3 mb-3 font09">
                   <label for="validationDefault03">Ngày sinh</label>
-                  <input type="date" class="form-control" formControlName="bday" placeholder="" readonly required>
+                  <input type="date" class="form-control" formControlName="birthday" placeholder="" readonly required>
                 </div>
 
               </div>
@@ -162,7 +162,7 @@
 
           <div class="col-md-12 mb-3 d-flex justify-content-end">
 
-            <button class="btn btn-light mar-left-05" type="button">Hủy bỏ</button>
+            <button class="btn btn-light mar-left-05" type="button" (click)="cancel()">Hủy bỏ</button>
 
             <button class="btn btn-success mar-left-05" type="submit" (click)="OnSubmit()">Đăng ký</button>
 

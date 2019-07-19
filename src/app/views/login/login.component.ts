@@ -28,6 +28,12 @@ export class LoginComponent implements OnInit {
       password: ['',  Validators.required]
 
     }, Validators.required);
+
+    this.userService.currentUser.subscribe(user => {
+      if(user){
+        this.router.navigate([""])
+      }
+    })
   }
   doLogin(){
     this.submitted = true;

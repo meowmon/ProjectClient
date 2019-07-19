@@ -1,6 +1,9 @@
+import { UserService } from 'src/app/common/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { formatDate } from '@angular/common';
+import { RequestService } from 'src/app/common/services/request.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requests',
@@ -20,16 +23,17 @@ export class RequestFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     // private route: ActivatedRoute, 
-    // private router: Router, 
+    private router: Router, 
     // private modalService: NgbModal, 
-    // private studentService: StudentService
+    private userService: UserService,
+    private requestService : RequestService
   ) { }
 
   ngOnInit() {
     this.userInfo = this.fb.group({
       code: ['', Validators.required],
       name: ['', [Validators.required]],
-      bday: ['', Validators.required],
+      birthday: ['', Validators.required],
       gender: [this.gender[0], Validators.required],
       bo_mon: ['', [Validators.required]],
     }, Validators.required);
@@ -52,6 +56,20 @@ export class RequestFormComponent implements OnInit {
 
   checkUser() {
     console.log(this.id)
+    this.userService.getUser(this.id).subscribe(response =>{
+      console.log(response.body)
+      this.userInfo.setValue({
+        code : response.body.code,
+        name : response.body.name,
+        birthday : response.body.birthday,
+        gender : response.body.gender,
+        bo_mon : response.body.bo_mon
+      })
+
+      this.requestInfo.patchValue({
+        idUser: response.body.id
+      })
+    })
 
   }
   getCourse() {
@@ -83,6 +101,16 @@ export class RequestFormComponent implements OnInit {
   OnSubmit() {
     console.log(this.userInfo.value)
     console.log(this.requestInfo.value)
+    if(this.requestInfo.valid && this.userInfo.valid){
+      this.requestService.addRequest(this.requestInfo.value).subscribe(Response => {
+        console.log(Response)
+        this.router.navigate(["/request"])
+      })
+    }
 
+  }
+
+  cancel(){
+    this.router.navigate(["/request"])
   }
 }
