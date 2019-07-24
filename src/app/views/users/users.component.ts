@@ -14,7 +14,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.UserService.getAllUser().subscribe(response =>{
-      this.listUsers = response.body
+      let list:any = response.body
+      this.listUsers = list.filter(function(item){return item.role !== "nv_yte"})
     })
   }
 

@@ -27,26 +27,13 @@
           </div>
         </li>
 
-        <li class="nav-item list-item">
-          <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Khoa
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Khoa 1</a>
-              <a class="dropdown-item" href="#">Khoa 2</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </li>
+        
 
 
         <li class="nav-item list-item">
           <div class="search-container">
             <form action="#">
-              <input class="border" type="text" placeholder="Search.." name="search">
+              <input class="border" type="text" placeholder="Search.." [(ngModel)]="searchText" name="searchText">
             </form>
           </div>
         </li>
@@ -84,34 +71,22 @@
                 <th scope="col">Xóa</th>
               </tr>
             </thead>
-            <tbody>
-              <!-- <c:forEach items="" var="file">
-                <tr>
-                  <td>id</td>
-                  <td>name</td>
-                  <td>ma nhan vien</td>
-                  <td>cai gi do</td>
-                  <td>ngay kham</td>
-                  <td>áds</td>
-                  <td><a href=""><i
-                        class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
-                  <!-- <td><a href="#"><i class="fas fa fa-times"></i></a></td> button Xóa -->
-                <!-- </tr>
-              </c:forEach> -->
-
+            <tbody *ngIf="listData">
+             <tr *ngFor="let item of listData | Filter: { name: searchText, code: searchText, date:searchText, reason:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
+              <td>{{i+1}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.code}}</td>
+              <td>{{item.id}}</td>
+              <td>{{item.date}}</td>
+              <td>{{item.reason}}</td>
+              <td><a routerLink=""><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
+             </tr>
             </tbody>
           </table>
         </div>
         <div class="line_20"> </div>
         <div class="pagination">
-          <a href="#">&laquo;</a>
-          <a href="#" class="active">1</a>
-          <a href="#">2</a>
-          <a href="#">3</a>
-          <a href="#">4</a>
-          <a href="#">5</a>
-          <a href="#">6</a>
-          <a href="#">&raquo;</a>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
   listData:any
+  confirmedList:any
+  requestList:any
   constructor(
     private requestService: RequestService,
     private router: Router
@@ -18,7 +20,8 @@ export class RequestsComponent implements OnInit {
     this.requestService.loadData().subscribe(response => {
       this.listData = response.body
       console.log(this.listData)
+      this.confirmedList = this.listData.filter(function(item){return item.status === "Confirmed"})
+      this.requestList = this.listData.filter(function (item) { return item.status === "Waitting" })
     })
   }
-
 }

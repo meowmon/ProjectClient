@@ -8,6 +8,10 @@ export class FilesService {
   url="http://localhost:8080/HoSos"
   constructor(private http:HttpClient) { }
 
+  loadData(){
+    return this.http.get(this.url,{observe:'response'})
+  }
+
   seeFile(id){
     return this.http.get(this.url + id, {observe :'response'})
   }

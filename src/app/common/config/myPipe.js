@@ -3,7 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 @Pipe ({
   name: 'Filter',
 })
-export class Pipe implements PipeTransform {
+export class MyPipe implements PipeTransform {
   transform (items: any, filter: any, defaultFilter: boolean): any {
     if (!filter) {
       return items;
