@@ -11,6 +11,8 @@ export class RequestsComponent implements OnInit {
   listData:any
   confirmedList:any
   requestList:any
+  searchText;
+  searchText1;
   constructor(
     private requestService: RequestService,
     private router: Router

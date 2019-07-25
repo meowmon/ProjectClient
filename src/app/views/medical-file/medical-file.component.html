@@ -12,23 +12,6 @@
           </a>
         </li>
 
-        <li class="nav-item list-item">
-          <div class="dropdown show above">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Bộ môn
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Bộ môn 1</a>
-              <a class="dropdown-item" href="#">Bộ môn 2</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-        </li>
-
-        
-
 
         <li class="nav-item list-item">
           <div class="search-container">
@@ -40,7 +23,7 @@
 
 
         <li class="nav-item list-item">
-          <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="setFilter('')">
             <i class="fas fa-align-left"></i>
             <span>Danh sách tất cả hồ sơ</span>
           </button>
@@ -68,11 +51,10 @@
                 <th scope="col">Ngày khám</th>
                 <th scope="col">Lí do khám</th>
                 <th scope="col">Xem chi tiết</th>
-                <th scope="col">Xóa</th>
               </tr>
             </thead>
             <tbody *ngIf="listData">
-             <tr *ngFor="let item of listData | Filter: { name: searchText, code: searchText, date:searchText, reason:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
+             <tr *ngFor="let item of listData | customPipe: { name: searchText, code: searchText, date:searchText, reason:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
               <td>{{i+1}}</td>
               <td>{{item.name}}</td>
               <td>{{item.code}}</td>

@@ -9,8 +9,7 @@
                 </div>
                 <div class="col-md-4 search-container ">
                     <form action="">
-                        <input class="border" type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <input class="border" type="text" placeholder="Search.." [(ngModel)]="searchText" name="searchText">
                     </form>
                 </div>
             </div>
@@ -30,7 +29,7 @@
                             <th scope="col">Hủy lịch</th>
                         </thead>
                         <tbody *ngIf="confirmedList">
-                            <tr *ngFor="let item of confirmedList; index as i">
+                            <tr *ngFor="let item of confirmedList| customPipe: { name: searchText, code: searchText, date:searchText, phone:searchText} ; index as i; trackBy: trackByFn ">
                                 <td>{{item.name}}</td>
                                 <td>{{item.code}}</td>
                                 <td>{{item.phone}}</td>
@@ -61,8 +60,7 @@
                 <div class="col-md-8 font117 mr-auto"> Quản lý yêu cầu khám </div>
                 <div class="col-md-4 search-container ">
                     <form action="">
-                        <input class="border" type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <input class="border" type="text" placeholder="Search.." [(ngModel)]="searchText1" name="searchText1">
                     </form>
                 </div>
             </div>
@@ -98,7 +96,7 @@
                                                 <th scope="col">Hủy lịch</th>
                                             </thead>
                                             <tbody *ngIf="requestList">
-                                                <tr *ngFor="let item of requestList; index as i">
+                                                <tr *ngFor="let item of requestList| customPipe: { name: searchText1, code: searchText1, date:searchText1, phone:searchText1}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
                                                     <td>{{item.name}}</td>
                                                     <td>{{item.code}}</td>
                                                     <td>{{item.phone}}</td>
@@ -135,7 +133,7 @@
                                                 <th scope="col">Hồ sơ</th>
                                             </thead>
                                             <tbody *ngIf="listData">
-                                                <tr *ngFor="let item of listData; index as i">
+                                                <tr *ngFor="let item of listData| customPipe: { name: searchText1, code: searchText1, date:searchText1, phone:searchText1}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
                                                     <td>{{item.name}}</td>
                                                     <td>{{item.code}}</td>
                                                     <td>{{item.phone}}</td>
@@ -160,14 +158,7 @@
                     </div>
                     <div class="line_20"> </div>
                     <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">&raquo;</a>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
                     </div>
                 </section>
 

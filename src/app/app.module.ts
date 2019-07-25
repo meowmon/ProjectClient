@@ -23,7 +23,8 @@ import { UserFormComponent } from './forms/user-form/user-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { MyPipe } from './common/config/myPipe.js';
+import { CustomPipePipe } from './common/config/custom-pipe.pipe';
+import { UserRecordsComponent } from './views/user-records/user-records.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MyPipe } from './common/config/myPipe.js';
     MedicalFileComponent,
     UserFormComponent,
     HeaderComponent,
-    MyPipe,
+    CustomPipePipe,
+    UserRecordsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { UserRecordsComponent } from './views/user-records/user-records.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path: 'addRecord', component:RecordFormComponent},
   {path: 'login', component:LoginComponent},
   {path: 'medicalFiles', component: MedicalFileComponent},
-  {path: 'addUser', component:UserFormComponent}
+  {path: 'addUser', component:UserFormComponent},
+  {path: 'editUser/:id', component:UserFormComponent},
+  {path: 'userRecords/:id', component:UserRecordsComponent},
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FilesService {
-  url="http://localhost:8080/HoSos"
+  url="http://localhost:8080/HoSos/"
   constructor(private http:HttpClient) { }
 
   loadData(){
