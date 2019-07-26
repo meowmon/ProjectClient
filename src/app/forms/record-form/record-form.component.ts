@@ -45,7 +45,8 @@ export class RecordFormComponent implements OnInit {
       heart_rate: ['', Validators.required],
       conclude: [''],
       descrip: [''],
-      heath_class: ['', Validators.required],
+      heath_class: ['Khỏe mạnh', Validators.required],
+      reason: ['Khám sức khỏe định kỳ', Validators.required],
     }, Validators.required);
   }
   onSubmit(){

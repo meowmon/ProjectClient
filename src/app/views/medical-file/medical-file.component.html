@@ -50,7 +50,8 @@
                 <th scope="col">Mã hồ sơ</th>
                 <th scope="col">Ngày khám</th>
                 <th scope="col">Lí do khám</th>
-                <th scope="col">Xem chi tiết</th>
+                <th scope="col">Chi tiết</th>
+                <th scope="col">Hồ sơ khám người dùng</th>
               </tr>
             </thead>
             <tbody *ngIf="listData">
@@ -61,7 +62,8 @@
               <td>{{item.id}}</td>
               <td>{{item.date}}</td>
               <td>{{item.reason}}</td>
-              <td><a routerLink=""><i class="fas fa fa-edit"></i></a></td> <!-- button Sửa -->
+              <td><button class="btn2" routerLink="/record/{{item.id}}"><i class="fa fa-heartbeat medkit"></i></button></td>
+              <td><button class="btn4" routerLink="/userRecords/{{item.user_id}}"><i class="fa fa-heartbeat medkit"></i></button></td>
              </tr>
             </tbody>
           </table>

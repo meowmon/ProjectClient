@@ -59,8 +59,7 @@
               <th scope="col">Giới tính</th>
               <th scope="col">Ngày sinh</th>
               <th scope="col">Bộ môn</th>
-              <th scope="col">Chi tiết</th>
-              <th scope="col">Hồ sơ khám</th>
+              <th scope="col">Hồ sơ chi tiết</th>
             </thead>
             <tbody>
               <tr *ngFor="let user of listUsers | customPipe: { name: searchText, code: searchText, bo_mon:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
@@ -69,8 +68,8 @@
                 <td>{{user.gender}}</td>
                 <td>{{user.birthday}}</td>
                 <td>{{user.bo_mon}}</td>
-                <td><button class="btn5" routerLink="/editUser/{{user.id}}"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2" routerLink="/userRecords/{{user.id}}"><i class="fa fa-heartbeat medkit"></i></button></td>
+                <td><button class="btn5" routerLink="/userRecords/{{user.id}}"><i class="fa fa-address-card medkit"></i></button></td>
+                
               </tr>
               
 

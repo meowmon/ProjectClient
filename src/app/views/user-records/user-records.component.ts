@@ -53,6 +53,7 @@ export class UserRecordsComponent implements OnInit {
       this.fileService.getUserFiles(this.id).subscribe(data => {
         console.log(data.body)
         this.listData = data.body
+        this.listData = this.listData.reverse()
       },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
