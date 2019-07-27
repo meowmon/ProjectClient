@@ -36,6 +36,7 @@ export class RecordFormComponent implements OnInit {
       idUser: ['', Validators.required],
       code: ['', Validators.required],
       name: ['', [Validators.required]],
+      gender: [''],
       leftEyeIndex: ['', Validators.required],
       rightEyeIndex: ['', Validators.required],
       height: ['', Validators.required],
@@ -81,6 +82,7 @@ export class RecordFormComponent implements OnInit {
           idUser: response.body.id,
           code: response.body.code,
           name: response.body.name,
+          gender: response.body.gender,
         })
         
       }

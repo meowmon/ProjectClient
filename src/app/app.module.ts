@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomPipePipe } from './common/config/custom-pipe.pipe';
 import { UserRecordsComponent } from './views/user-records/user-records.component';
+import { ReportComponent } from './views/report/report.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { UserRecordsComponent } from './views/user-records/user-records.componen
     HeaderComponent,
     CustomPipePipe,
     UserRecordsComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,

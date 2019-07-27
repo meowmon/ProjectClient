@@ -1,3 +1,4 @@
+import { ReportComponent } from './views/report/report.component';
 import { RecordDetailComponent } from './views/record-detail/record-detail.component';
 import { UserRecordsComponent } from './views/user-records/user-records.component';
 import { UserFormComponent } from './forms/user-form/user-form.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'addUser', component:UserFormComponent},
   {path: 'editUser/:id', component:UserFormComponent},
   {path: 'userRecords/:id', component:UserRecordsComponent},
-  {path: 'record/:id', component:RecordDetailComponent}
+  {path: 'record/:id', component:RecordDetailComponent},
+  {path: 'report', component: ReportComponent}
 ];
 
 @NgModule({

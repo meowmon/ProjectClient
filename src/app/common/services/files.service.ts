@@ -27,4 +27,8 @@ export class FilesService {
   getUserFiles(id){
     return this.http.get(this.url +"userid/" + id, {observe : 'response'})
   }
+
+  getSession(start, end){
+    return this.http.get(this.url + "/from/" +start+ "/to/" + end , {observe: 'response'} )
+  }
 }
