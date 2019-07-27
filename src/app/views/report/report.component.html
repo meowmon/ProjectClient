@@ -82,7 +82,7 @@
                 <div class="col-md-4"><strong>Các vấn đề nghiêm trọng:</strong></div>
                 <div class="col-md-8">
                   <div *ngFor="let item of data">
-                    <div *ngIf="item.heath_class === 'Có vấn đề sức khỏe nghiêm trọng' ">{{item.conclude}}</div>
+                    <div *ngIf="item.heath_class === 'Có vấn đề sức khỏe nghiêm trọng' "><strong>{{item.code}}</strong>:{{item.descrip}}</div>
                   </div>
                 </div>
               </div>

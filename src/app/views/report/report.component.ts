@@ -41,7 +41,7 @@ export class ReportComponent implements OnInit {
         this.datalength = this.data.length;
         console.log(this.data.length)
         this.male = this.data.filter(item => item.gender === "Nam").length;
-        this.female = this.data.filter(item => item.gender === "Nữ ").length;
+        this.female = this.data.filter(item => item.gender === "Nữ	").length;
         this.problem = this.data.filter(item => item.reason === "Khám sức khỏe định kỳ").length;
         this.local = this.data.filter(item => item.reason === "Khám theo yêu cầu").length;
         this.normal = this.data.filter(item => item.heath_class === "Khỏe mạnh").length;
