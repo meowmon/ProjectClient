@@ -31,7 +31,11 @@ export class RequestFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user = this.userService.currentUser.subscribe(data => this.user = data)
+    this.userService.currentUser.subscribe(data => {
+      this.user = data.body
+      console.log(this.user)
+    })
+
     this.userInfo = this.fb.group({
       code: ['', Validators.required],
       name: ['', [Validators.required]],
@@ -60,10 +64,12 @@ export class RequestFormComponent implements OnInit {
     })
   }
   getNewStatus(){
-    if(this.user.role === "nv_yte")
-      return "Chờ khám"
-    else if ( this.user.role === "giao_vien" || this.user.role === "ban_giam_hieu" )
-      return "Chờ xác nhận"
+    if(this.user.role === "nv_yte"){
+      return 2;
+    }
+    else{
+      return 1;
+    }
   }
 
   checkUser() {
@@ -114,10 +120,12 @@ export class RequestFormComponent implements OnInit {
   }
 
   OnSubmit() {
-    if(this.requestInfo.controls.status.value == null)
+    if(this.requestInfo.controls.status.value === ''){
+    let thisStatus = this.getNewStatus();
+    console.log(thisStatus)
       this.requestInfo.patchValue({
-        status : this.getNewStatus()
-      })
+        status : thisStatus,
+      })}
     console.log(this.userInfo.value)
     console.log(this.requestInfo.value)
     if(this.requestInfo.valid && this.userInfo.valid){
