@@ -20,6 +20,7 @@ export class RequestFormComponent implements OnInit {
   timeSession: string[] = ['Sáng', 'Chiều', 'Ngoài giờ'];
   valid = false;
   predictFee = 0;
+  user: any;
   constructor(
     private fb: FormBuilder,
     // private route: ActivatedRoute, 
@@ -30,6 +31,7 @@ export class RequestFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = this.userService.currentUser.subscribe(data => this.user = data)
     this.userInfo = this.fb.group({
       code: ['', Validators.required],
       name: ['', [Validators.required]],
@@ -46,12 +48,19 @@ export class RequestFormComponent implements OnInit {
       xquang: [false],
       fee: [0],
       descrip: [''],
+      status: ['']
     }, Validators.required);
 
     console.log(formatDate(this.date, 'dd-MM-yyyy', 'en-us', '+0700'))
     this.requestInfo.patchValue({
       date: formatDate(this.date, 'yyyy-MM-dd', 'en-us', '+0700')
     })
+  }
+  getNewStatus(){
+    if(this.user.role === "nv_yte")
+      return "Chờ khám"
+    else if ( this.user.role === "giao_vien" || this.user.role === "ban_giam_hieu" )
+      return "Chờ xác nhận"
   }
 
   checkUser() {
@@ -72,7 +81,7 @@ export class RequestFormComponent implements OnInit {
     })
 
   }
-  getCourse() {
+  getTime() {
     console.log(this.requestInfo.value)
   }
   xnghiem() {
@@ -99,6 +108,10 @@ export class RequestFormComponent implements OnInit {
   }
 
   OnSubmit() {
+    if(this.requestInfo.controls.status.value == null)
+      this.requestInfo.patchValue({
+        status : this.getNewStatus()
+      })
     console.log(this.userInfo.value)
     console.log(this.requestInfo.value)
     if(this.requestInfo.valid && this.userInfo.valid){
