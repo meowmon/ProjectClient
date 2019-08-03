@@ -1,8 +1,9 @@
 import { element } from 'protractor';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../common/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-form',
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
+  @Input() id: number
   userForm: FormGroup;
   gender: string[] = ['Nam', 'Nữ'];
   roles = [
@@ -20,7 +22,8 @@ export class UserFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private us: UserService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,33 @@ export class UserFormComponent implements OnInit {
       console.log(response.body)
       this.bo_mons = response.body
     })
+    this.id = +this.route.snapshot.paramMap.get('id');
+  console.log(this.id)
+  if(this.id != 0){
+    this.us.getUserId(this.id).subscribe(data => {
+      console.log(data)
+      this.userForm.patchValue({
+        name : data.body.name,
+        code : data.body.code,
+        birthday : data.body.birthday,
+        phone: data.body.phone,
+        gender : data.body.gender,
+        id_bomon : data.body.id_bomon,
+        role : data.body.role
+      })
+    },
+    (err: HttpErrorResponse) => {
+      if (err.error instanceof Error) {
+        // A client-side or network error occurred. Handle it accordingly.
+        console.log('An error occurred:', err.error.message);
+      } else {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+      }
+    })
+    
+  } 
   }
 
   setBomon(){
@@ -51,11 +81,17 @@ export class UserFormComponent implements OnInit {
     this.setBomon()
     console.log(this.userForm)
     if(this.userForm.valid){
+      if (this.id != 0){
+        this.us.editUser(this.id, this.userForm.value).subscribe();
+        this.router.navigate([''])
+      }
+      else{
       this.us.createUser(this.userForm.value).subscribe(reponse =>{
         console.log(reponse)
         this.router.navigate([''])
         // location.reload()
       })
+    }
     }
 
   }

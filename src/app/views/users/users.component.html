@@ -23,34 +23,15 @@
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Bộ môn 1</a>
-              <a class="dropdown-item" href="#">Bộ môn 2</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-
-
-          </div>
-        </li>
-        <li class="nav-item list-item">
-          <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Khoa
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Khoa 1</a>
-              <a class="dropdown-item" href="#">Khoa 2</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" *ngFor="let item of listBomon" (click)="setFilter(item.name)">{{item.name}}</a>
             </div>
           </div>
         </li>
-
 
         <li class="nav-item list-item">
           <div class="search-container">
             <form action="#">
-              <input class="border" type="text" placeholder="Search.." name="search">
+              <input class="border" type="text" placeholder="Search.." [(ngModel)]="searchText" name="searchText">
               <button type="submit"><i class="fa fa-search"></i></button>
             </form>
           </div>
@@ -58,7 +39,7 @@
 
 
         <li class="nav-item list-item">
-          <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="setFilter('')">
             <i class="fas fa-align-left"></i>
             <span> Danh sách tất cả giáo viên</span>
           </button>
@@ -78,20 +59,17 @@
               <th scope="col">Giới tính</th>
               <th scope="col">Ngày sinh</th>
               <th scope="col">Bộ môn</th>
-              <th scope="col">Chi tiết</th>
-              <th scope="col">Hồ sơ khám</th>
-              <th scope="col">Sửa</th>
+              <th scope="col">Hồ sơ chi tiết</th>
             </thead>
             <tbody>
-              <tr *ngFor="let user of listUsers ; index as i">
+              <tr *ngFor="let user of listUsers | customPipe: { name: searchText, code: searchText, bo_mon:searchText}  | paginate: { itemsPerPage: 8, currentPage: p}; index as i; trackBy: trackByFn ">
                 <td>{{user.name}}</td>
                 <td>{{user.code}}</td>
                 <td>{{user.gender}}</td>
                 <td>{{user.birthday}}</td>
                 <td>{{user.bo_mon}}</td>
-                <td><button class="btn5"><i class="fa fa-address-card medkit"></i></button></td>
-                <td><button class="btn2"><i class="fa fa-heartbeat medkit"></i></button></td>
-                <td><button class="btn3"><i class="fa fa-edit medkit"></i></button></td> <!-- button Sửa -->
+                <td><button class="btn5" routerLink="/userRecords/{{user.id}}"><i class="fa fa-address-card medkit"></i></button></td>
+                
               </tr>
               
 
@@ -100,14 +78,7 @@
 
           <div class="line_20"> </div>
           <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
           </div>
         </div>
       </div>

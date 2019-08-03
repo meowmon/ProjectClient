@@ -28,6 +28,7 @@
             <div class="col-md-3 mb-3">
             <button class="btn btn-info" type="button" (click)="getUser()">Kiểm tra</button>
           </div>
+          <div style="color: red"> {{message}}</div>
           </div>
         </div>
           <div class="form-row">
@@ -49,7 +50,7 @@
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationDefault03">Ngày sinh</label>
-              <input type="date" class="form-control" formControlName="bday" placeholder=""  readonly required>
+              <input type="date" class="form-control" formControlName="birthday" placeholder=""  readonly required>
             </div>
             
           </div>
@@ -152,13 +153,27 @@
                     </div>
                 </div>
           
-                 <div class="col-md-2 mb-3 mr-2">
-                    <label for="validationDefault01">Phân loại thể lực</label>
-                      <input type="text" class="form-control"  placeholder="Phân loại thể lực" formControlName="heath_class" value="" required>
+                 <div class="col-md-4 mb-3 mr-2">
+                    <label for="inputState">Kết luận sức khỏe</label>
+                    <select class="form-control" formControlName="heath_class">
+                      <option selected value="Khỏe mạnh">Khỏe mạnh</option>
+                      <option value="Mắc bệnh thông thường">Mắc bệnh thông thường</option>
+                      <option value="Sức khỏe kém">Sức khỏe kém</option>
+                      <option value="Có vấn đề sức khỏe nghiêm trọng">Có vấn đề sức khỏe nghiêm trọng</option>
+                    </select>
                     </div>
                 </div>
            
           
+          <div class="form-row ">
+            <div class="col-md-4 mb-3 mr-2">
+              <label for="inputState">Lý do khám</label>
+              <select class="form-control" formControlName="reason">
+                <option selected value="Khám sức khỏe định kỳ">Khám sức khỏe định kỳ</option>
+                <option value="Khám theo yêu cầu">Khám theo yêu cầu</option>
+              </select>
+            </div>
+          </div>
           
           <div class="form-row ">
             <div class="col-md-8 mb-3">

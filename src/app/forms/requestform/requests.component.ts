@@ -43,6 +43,9 @@ export class RequestFormComponent implements OnInit {
       idUser: ['', Validators.required],
       date: ['', Validators.required],
       time: [this.timeSession[0], Validators.required],
+      code: ['', Validators.required],
+      name: ['', [Validators.required]],
+      phone: ['', Validators.required],
       xnghiem: [false],
       sieuam: [false],
       xquang: [false],
@@ -76,7 +79,10 @@ export class RequestFormComponent implements OnInit {
       })
 
       this.requestInfo.patchValue({
-        idUser: response.body.id
+        idUser: response.body.id,
+        code: response.body.code,
+        name: response.body.name,
+        phone: response.body.phone
       })
     })
 

@@ -1,3 +1,142 @@
-<p>
-  record-detail works!
-</p>
+<div id="content">
+
+  <div class="">
+    <div class="card ">
+      <div class="card-header">
+        <div class="font117"> Hồ sơ chi tiết </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light topnav marb-10">
+            <div class="container-fluid">
+          
+              <li class="nav-item list-item">
+                <a href="BloodAnalyze?id=${file.examfileId }">
+                  <button type="button" id="sidebarCollapse" class="btn btn-danger">
+                    <i class="fas fa fa-tint"></i>
+                    <span> Xét nghiệm máu</span>
+                  </button>
+                </a>
+              </li>
+          
+          
+              <li class="nav-item list-item">
+                <a href="sieuam.html">
+                  <button type="button" id="sidebarCollapse" class="btn btn-warning">
+                    <i class="fas fa fa-assistive-listening-systems"></i>
+                    <span> Siêu âm</span>
+                  </button>
+                </a>
+              </li>
+          
+          
+              <li class="nav-item list-item">
+                <a href="x-quang.html">
+                  <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa fa-user-circle"></i>
+                    <span> X-Quang phổi</span>
+                  </button>
+                </a>
+              </li>
+            </div>
+          </nav>
+          <form class="card-body card" items="" var="detail">
+          
+          
+            <div class="border-gray">
+              <h5>Chỉ số sơ bản</h5>
+              <div class="line_20"></div>
+          
+              <div class="form-row">
+                <div class="col-md-2 mb-4 mr-2">
+                  <label for="validationDefault01">Mắt trái</label>
+                  <div class="input-group">
+                      <span class="input-group-text">{{data.leftEyeIndex}} / 10</span>
+                  </div>
+                </div>
+          
+                <div class="col-md-2 mb-4">
+                  <label for="validationDefault01">Mắt phải</label>
+                  <div class="input-group">
+                    <span class="input-group-text">{{data.rightEyeIndex}} / 10</span>
+                  </div>
+                </div>
+              </div>
+          
+            
+          
+          
+            <div class="form-row">
+              <div class="col-md-2 mb-4 mr-2">
+                <label for="validationDefault01">Chiều cao</label>
+                <div class="input-group">
+                  <span class="input-group-text">{{data.height}} Cm</span>
+                </div>
+              </div>
+          
+              <div class="col-md-2 mb-4 mr-2">
+                <label for="validationDefault01">Cân nặng</label>
+                <div class="input-group">
+                  <span class="input-group-text">{{data.weight}} Kg</span>
+                </div>
+              </div>
+          
+              <div class="col-md-2 mb-4">
+                <label for="validationDefault01">BMI</label>
+                <div class="input-group">
+                  <span class="input-group-text">{{BMI}}</span>
+                </div>
+              </div>
+          
+          
+          
+            </div>
+          
+            <div class="form-row">
+          
+              <div class="col-md-2 mb-2 mr-2">
+                <label for="validationDefault01">Mạch</label>
+                <div class="input-group">
+                  <span class="input-group-text">{{data.heart_rate}} lần/phút</span>
+                </div>
+              </div>
+              <div class="col-md-2 mb-2 mr-2">
+                <label for="validationDefault01">Huyết áp</label>
+                <div class="input-group">
+                  <span class="input-group-text">{{data.blood_pressure}} mmHg</span>
+                </div>
+              </div>
+          
+              <div class="col-md-4 mb-2">
+                <label for="validationDefault01">Kết luận thể lực</label>
+                <span class="input-group-text">{{data.heath_class}}</span>
+              </div>
+            </div>
+          
+          
+            <div class="form-row" items="${file}" var="file">
+              <div class="col-md-8 mb-3">
+                <label for="validationDefault01">Mô tả</label>
+                <span class="input-group-text">{{data.descrip}}</span>
+              </div>
+            </div>
+          
+            <div class="form-row">
+              <div class="col-md-8 mb-3">
+                <label for="validationDefault01">Kết luận</label>
+                <span class="input-group-text">{{data.conclude}}</span>
+              </div>
+            </div>
+            </div>
+          </form>
+          <div class="d-flex flex-row-reverse">
+            <a routerLink="/userRecords/{{data.idUser}}" class="ml-2"><button type="button" class="btn btn-primary">Xem hồ sơ người dùng</button></a>
+
+            <a routerLink="/medicalFiles"><button class="btn btn-default" type="button">Trở lại xem danh sách</button></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -55,6 +55,9 @@ export class UserService {
   editUser(id, input){
     return this.http.put(this.userUrl + id, input, { observe: 'response' })
   }
+  getUserId(id) {
+    return this.http.get<user>(this.userUrl + id, { observe: 'response' })
+  }
 
   getUser(id){
     return this.http.get<user>(this.userUrl +"code/"+ id, { observe: 'response' })

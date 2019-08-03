@@ -22,6 +22,10 @@ import { MedicalFileComponent } from './views/medical-file/medical-file.componen
 import { UserFormComponent } from './forms/user-form/user-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomPipePipe } from './common/config/custom-pipe.pipe';
+import { UserRecordsComponent } from './views/user-records/user-records.component';
+import { ReportComponent } from './views/report/report.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     MedicalFileComponent,
     UserFormComponent,
     HeaderComponent,
+    CustomPipePipe,
+    UserRecordsComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [
     ConstantsService,

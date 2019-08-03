@@ -5,8 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FilesService {
-  url="http://localhost:8080/HoSos"
+  url="http://localhost:8080/HoSos/"
   constructor(private http:HttpClient) { }
+
+  loadData(){
+    return this.http.get(this.url,{observe:'response'})
+  }
 
   seeFile(id){
     return this.http.get(this.url + id, {observe :'response'})
@@ -22,5 +26,9 @@ export class FilesService {
 
   getUserFiles(id){
     return this.http.get(this.url +"userid/" + id, {observe : 'response'})
+  }
+
+  getSession(start, end){
+    return this.http.get(this.url + "/from/" +start+ "/to/" + end , {observe: 'response'} )
   }
 }

@@ -1,0 +1,100 @@
+<div id="content">
+
+  <div class="">
+    <div class="card ">
+      <div class="card-header">
+        <div class="font117">Thống kê hồ sơ</div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <div class="border-gray2 mb-4">
+            <div class="form-row mar-left-05 " [formGroup]="timeForm">
+              <div class="col-md-3 mb-4 font09">
+                <label for="validationDefault03">Ngày bắt đầu</label>
+                <input type="date" name="startDate" max="3000-12-31" formControlName="startDate" min="1000-01-01"
+                  class="form-control" required>
+              </div>
+              <div class="col-md-3 mb-4 font09">
+                <label for="validationDefault03">Ngày kết thúc</label>
+                <input type="date" name="endDate" max="3000-12-31" formControlName="endDate" min="1000-01-01"
+                  class="form-control" required>
+              </div>
+              <div class="col-md-3 mb-4 mt-4">
+                <button class="btn btn-primary mx-2 align-bottom" type="button" (click)="getData()" >Lấy dữ liệu</button>
+              </div>
+            </div>
+            <div
+              *ngIf="(timeForm.get('startDate')?.touched || timeForm.get('startDate')?.dirty) && timeForm.get('endDate')?.touched || timeForm.get('endDate')?.dirty"
+              class="error">
+              <div *ngIf="validate()" style="color:red">Bạn phải chọn cả ngày bắt đầu và kết thúc hợp lệ
+              </div>
+            </div>
+            <div class="form-row mar-left-05">
+
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive" *ngIf="generated">
+          <div class="border-gray2 mb-4" *ngIf="datalength > 0 ; else noData">
+            <div class="form-row font117">
+              Thống kê từ ngày <p class="font117" style="color:red">  {{timeForm.controls.startDate.value}}  </p> đến ngày
+              <p class="font117" style="color:red">  {{timeForm.controls.endDate.value}}</p>
+            </div>
+            <div class="form-row mt-2">
+              <div class="col-md-12 inline">
+                <strong>Tổng số hồ sơ khám:</strong>  {{dataLenght}}
+              </div>
+            </div>
+            <div class="form-row mt-2">
+              <div class="col-md-3 inline border">
+                <div class="col-md-7"><strong>Tỉ lệ giới tính:</strong></div>
+                <div class="col-md-5">
+                  <div>Nam: {{male}}</div>
+                  <div>Nữ: {{female}}</div>
+                </div>
+
+              </div>
+              <div class="col-md-5 inline border">
+                <div class="col-md-4"><strong>Lý do khám:</strong></div>
+                <div class="col-md-8">
+                  <div>Khám sức khỏe định kỳ: {{local}}</div>
+                  <div>Phát sinh sự cố sức khỏe: {{problem}}</div>
+                </div>
+              </div>
+              <div class="col-md-4 inline border">
+                <!-- <div class="col-md-8"><strong>Chỉ số BMI trung bình:</strong></div>
+                <div class="col-md-4">
+                  <div>{{BMI}}</div>
+                </div> -->
+              </div>
+            </div>
+            <div class="form-row mt-2">
+              <div class="col-md-6 inline border">
+                <div class="col-md-4"><strong>Kết luận sức khỏe:</strong></div>
+                <div class="col-md-8">
+                  <div>Khỏe mạnh: {{normal}}</div>
+                  <div>Vấn đề sức khỏe thông thường : {{unnormal}}</div>
+                  <div>Sức khỏe kém: {{weak}}</div>
+                  <div>Có vấn đề sức khỏe nghiêm trọng: {{extremWeak}}</div>
+                </div>
+              </div>
+              <div class="col-md-6 inline border">
+                <div class="col-md-4"><strong>Các vấn đề nghiêm trọng:</strong></div>
+                <div class="col-md-8">
+                  <div *ngFor="let item of data">
+                    <div *ngIf="item.heath_class === 'Có vấn đề sức khỏe nghiêm trọng' "><strong>{{item.code}}</strong>:{{item.descrip}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noData>
+            <div class="form-row">
+              <div style="color: red"> Không có hồ sơ khám nào được thực hiện hoặc không có dữ liệu</div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
