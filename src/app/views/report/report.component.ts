@@ -19,6 +19,9 @@ export class ReportComponent implements OnInit {
   weak=0;
   extremWeak=0;
   generated = false;
+  sieuam=0;
+  xquang =0;
+  xnghiem = 0;
   timeForm: FormGroup
   constructor(
     private fb : FormBuilder,
@@ -48,6 +51,9 @@ export class ReportComponent implements OnInit {
         this.unnormal = this.data.filter(item => item.heath_class === "Mắc bệnh thông thường").length;
         this.weak = this.data.filter(item => item.heath_class === "Sức khỏe kém").length;
         this.extremWeak = this.data.filter(item => item.heath_class === "Có vấn đề sức khỏe nghiêm trọng").length;
+        this.xnghiem = this.data.filter(item => item.has_xnghiem).length;
+        this.xquang = this.data.filter(item => item.has_xquang).length;
+        this.sieuam = this.data.filter(item => item.has_sieuam).length;
       })
 
     }

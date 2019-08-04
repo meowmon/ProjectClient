@@ -26,6 +26,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomPipePipe } from './common/config/custom-pipe.pipe';
 import { UserRecordsComponent } from './views/user-records/user-records.component';
 import { ReportComponent } from './views/report/report.component';
+import { SieuAmComponent } from './views/sieu-am/sieu-am.component';
+import { XquangComponent } from './views/xquang/xquang.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { ReportComponent } from './views/report/report.component';
     CustomPipePipe,
     UserRecordsComponent,
     ReportComponent,
+    SieuAmComponent,
+    XquangComponent,
   ],
   imports: [
     BrowserModule,

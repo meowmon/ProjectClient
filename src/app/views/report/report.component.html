@@ -79,10 +79,20 @@
                 </div>
               </div>
               <div class="col-md-6 inline border">
+                <div class="col-md-4"><strong>Hồ sơ khám phụ:</strong></div>
+                <div class="col-md-8">
+                  <div>Siêu âm: {{sieuam}}</div>
+                  <div>Chụp X-quang phổi: {{xquang}}</div>
+                  <div>Xet nghiệm máu: {{xnghiem}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row mt-2">
+              <div class="col-md-12 inline border">
                 <div class="col-md-4"><strong>Các vấn đề nghiêm trọng:</strong></div>
                 <div class="col-md-8">
                   <div *ngFor="let item of data">
-                    <div *ngIf="item.heath_class === 'Có vấn đề sức khỏe nghiêm trọng' "><strong>{{item.code}}</strong>:{{item.descrip}}</div>
+                    <div *ngIf="item.heath_class === 'Có vấn đề sức khỏe nghiêm trọng' "><strong>{{item.name}}-{{item.code}}</strong>:{{item.descrip}}</div>
                   </div>
                 </div>
               </div>
