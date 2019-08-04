@@ -22,7 +22,7 @@ export class NotifyService {
     return this.http.get(this.url +'user/'+  id , {observe : 'response'})
   }
 
-  getUnreadNoti(id){
-    return this.http.get(this.url + 'unread/' + id, {observe : 'response'})
+  getUnreadNoti(){
+    return this.http.get(this.url + 'unread/nvyt', {observe : 'response'})
   }
 }

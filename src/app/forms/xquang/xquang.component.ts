@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './xquang.component.html',
   styleUrls: ['./xquang.component.css']
 })
-export class XquangComponent implements OnInit {
+export class XquangFormComponent implements OnInit {
 
   constructor() { }
 

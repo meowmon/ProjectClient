@@ -23,10 +23,18 @@
 
 
         <li class="nav-item list-item">
-          <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="setFilter('')">
-            <i class="fas fa-align-left"></i>
-            <span>Danh sách tất cả hồ sơ</span>
-          </button>
+            <div class="dropdown show above">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Phân loại hồ sơ
+                </a>
+    
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" (click)="setFilter('')">Tất cả hồ sơ</a>
+                  <a class="dropdown-item" (click)="setFilter('Khám theo yêu cầu')">Hồ sơ khám theo yêu cầu</a>
+                  <a class="dropdown-item" (click)="setFilter('Khám sức khỏe định kỳ')">Hồ sơ khám theo kì</a>
+                </div>
+              </div>
         </li>
       </div>
     </nav>

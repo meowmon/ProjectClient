@@ -1,8 +1,8 @@
 import { FilesService } from './../../common/services/files.service';
 import { UserService } from './../../common/services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 
 @Component({
@@ -11,17 +11,18 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./record-form.component.css']
 })
 export class RecordFormComponent implements OnInit {
+  @Input() code: string
   userInfo: FormGroup
   examInfo: FormGroup
   gender: string[] = ['Nam', 'Nữ'];
-  id;
   date = new Date();
   message: String;
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private filesService: FilesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -49,6 +50,14 @@ export class RecordFormComponent implements OnInit {
       heath_class: ['Khỏe mạnh', Validators.required],
       reason: ['Khám sức khỏe định kỳ', Validators.required],
     }, Validators.required);
+    let codei = this.route.snapshot.paramMap.get('code');
+    console.log(codei)
+    if(codei != null){
+      this.userInfo.patchValue({
+        code : codei
+      })
+      this.getUser()
+    }
   }
   onSubmit(){
     console.log(this.examInfo.value)

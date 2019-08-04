@@ -11,32 +11,61 @@
             <div class="container-fluid">
           
               <li class="nav-item list-item">
-                <a href="BloodAnalyze?id=${file.examfileId }">
+                <div *ngIf="data.has_xnghiem ; else addXnghiem ">
+                <a routerLink="/bloodExam/{{data.id}}">
                   <button type="button" id="sidebarCollapse" class="btn btn-danger">
                     <i class="fas fa fa-tint"></i>
                     <span> Xét nghiệm máu</span>
                   </button>
                 </a>
+              </div>
+              <ng-template #addXnghiem>
+                  <a routerLink="/bloodForm/{{data.id}}">
+                    <button type="button" id="sidebarCollapse" class="btn btn-danger">
+                      <i class="fas fa fa-plus"></i>
+                      <span> Thêm xét nghiệm máu</span>
+                    </button>
+                  </a>
+              </ng-template>
+              
               </li>
           
           
               <li class="nav-item list-item">
-                <a href="sieuam.html">
+                  <div *ngIf="data.has_sieuam ; else addSieuam ">
+                <a routerLink="/sieuam/{{data.id}}">
                   <button type="button" id="sidebarCollapse" class="btn btn-warning">
                     <i class="fas fa fa-assistive-listening-systems"></i>
                     <span> Siêu âm</span>
                   </button>
                 </a>
+                  </div>
+                  <ng-template #addSieuam><a routerLink="/sieuamForm/{{data.id}}">
+                    <button type="button" id="sidebarCollapse" class="btn btn-warning">
+                      <i class="fas fa fa-plus"></i>
+                      <span> Thêm hồ sơ iêu âm</span>
+                    </button>
+                  </a></ng-template>
+                  
               </li>
           
           
               <li class="nav-item list-item">
-                <a href="x-quang.html">
+                  <div *ngIf="data.has_xquang ; else addXquang ">
+                <a routerLink="/xquang/{{data.id}}">
                   <button type="button" id="sidebarCollapse" class="btn btn-info">
                     <i class="fas fa fa-user-circle"></i>
                     <span> X-Quang phổi</span>
                   </button>
                 </a>
+                  </div>
+                  <ng-template #addXquang><a routerLink="/xquang/{{data.id}}">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                      <i class="fas fa fa-plus"></i>
+                      <span> Thêm hồ sơ X-Quang phổi</span>
+                    </button>
+                  </a></ng-template>
+                  
               </li>
             </div>
           </nav>

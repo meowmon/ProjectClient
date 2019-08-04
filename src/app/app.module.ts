@@ -15,7 +15,8 @@ import { UsersComponent } from './views/users/users.component';
 import { RequestsComponent } from './views/requests/requests.component';
 import { RequestFormComponent } from './forms/requestform/requests.component';
 import { LoginComponent } from './views/login/login.component';
-import { BloodExamComponent } from './forms/blood-exam/blood-exam.component';
+import { BloodExamFormComponent } from './forms/blood-exam/blood-exam.component';
+import { BloodExamComponent } from './views/blood-exam/blood-exam.component';
 import { RecordDetailComponent } from './views/record-detail/record-detail.component';
 import { RecordFormComponent } from './forms/record-form/record-form.component';
 import { MedicalFileComponent } from './views/medical-file/medical-file.component';
@@ -28,6 +29,9 @@ import { UserRecordsComponent } from './views/user-records/user-records.componen
 import { ReportComponent } from './views/report/report.component';
 import { SieuAmComponent } from './views/sieu-am/sieu-am.component';
 import { XquangComponent } from './views/xquang/xquang.component';
+import { SieuAmFormComponent } from './forms/sieu-am/sieu-am.component';
+import { XquangFormComponent } from './forms/xquang/xquang.component';
+import { SubFileService } from './common/services/sub-file.service';
 
 @NgModule({
   declarations: [
@@ -37,10 +41,13 @@ import { XquangComponent } from './views/xquang/xquang.component';
     UsersComponent,
     RequestsComponent,
     LoginComponent,
+    BloodExamFormComponent,
     BloodExamComponent,
     RecordDetailComponent,
     RecordFormComponent,
     RequestFormComponent,
+    SieuAmFormComponent,
+    XquangFormComponent,
     MedicalFileComponent,
     UserFormComponent,
     HeaderComponent,
@@ -64,7 +71,8 @@ import { XquangComponent } from './views/xquang/xquang.component';
     UserService,
     FilesService,
     NotifyService,
-    RequestService
+    RequestService,
+    SubFileService
   ],
   bootstrap: [AppComponent]
 })

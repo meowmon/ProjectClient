@@ -13,12 +13,16 @@ import { MedicalFileComponent } from './views/medical-file/medical-file.componen
 import { BloodExamComponent } from './views/blood-exam/blood-exam.component';
 import { XquangComponent } from './views/xquang/xquang.component';
 import { SieuAmComponent } from './views/sieu-am/sieu-am.component';
+import { SieuAmFormComponent } from './forms/sieu-am/sieu-am.component';
+import { BloodExamFormComponent } from './forms/blood-exam/blood-exam.component';
+import { XquangFormComponent } from './forms/xquang/xquang.component';
 
 const routes: Routes = [
   {path: '', component:UsersComponent},
   {path: 'request', component:RequestsComponent},
   {path: 'addRequest', component:RequestFormComponent},
   {path: 'addRecord', component:RecordFormComponent},
+  {path: 'addRecord/:code', component:RecordFormComponent},
   {path: 'login', component:LoginComponent},
   {path: 'medicalFiles', component: MedicalFileComponent},
   {path: 'addUser', component:UserFormComponent},
@@ -26,12 +30,12 @@ const routes: Routes = [
   {path: 'userRecords/:id', component:UserRecordsComponent},
   {path: 'record/:id', component:RecordDetailComponent},
   {path: 'report', component: ReportComponent},
-  {path: 'bloodExam', component: BloodExamComponent},
-  {path: 'xquang', component: XquangComponent},
-  {path: 'sieuam', component: SieuAmComponent},
-  {path: 'bloodForm'},
-  {path: 'sieuamForm'},
-  {path: 'xquangForm'},
+  {path: 'bloodExam/:id', component: BloodExamComponent},
+  {path: 'xquang/:id', component: XquangComponent},
+  {path: 'sieuam/:id', component: SieuAmComponent},
+  {path: 'bloodForm/:id', component: BloodExamFormComponent},
+  {path: 'sieuamForm/:id', component: SieuAmFormComponent},
+  {path: 'xquangForm/:id', component: XquangFormComponent},
 ];
 
 @NgModule({

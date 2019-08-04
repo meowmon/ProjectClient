@@ -1,3 +1,61 @@
-<p>
-  sieu-am works!
-</p>
+<div id="content">
+    <div class="card card-body section-view">
+      <form [formGroup] ="dataForm">
+        <div class="col-md-4 mb-4">
+          <h5>Thông tin siêu âm</h5>
+        </div>
+        <div class="border-gray">
+            <div class="form-row">
+               <div class="col-md-9 mb-3">
+                 <label for="validationDefault01">Kỹ thuật chụp</label>
+                 <input type="text" class="form-control" id="validationDefault01" placeholder="Kỹ thuật chụp" value="" required>
+               </div>
+           </div>
+
+           <div class="form-row">
+               <div class="col-md-9 mb-3">
+                 <label for="validationDefault01">Chuẩn đoán</label>
+                 <input type="text" class="form-control" id="validationDefault01" placeholder="Chuẩn đoán" value="" required>
+               </div>
+           </div>
+
+            <div class="form-row">
+               <div class="col-md-9 mb-3">
+                 <label for="validationDefault01">Hình ảnh</label>
+                 <div class="custom-file">
+                   <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                   <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                 </div>
+               </div>
+           </div>
+
+             <div class="form-row">
+               <div class="col-md-9 mb-3">
+                 <label for="validationDefault01">Mô tả hình ảnh</label>
+                 <textarea class="form-control" aria-label="Mô tả"></textarea>
+               </div>
+             </div>
+
+             <div class="form-row">
+               <div class="col-md-9 mb-3">
+                 <label for="validationDefault01">Kết luận</label>
+                 <textarea class="form-control" aria-label="Mô tả"></textarea>
+               </div>
+             </div>
+             
+             <div class="form-row">                   <!--    Set role for user    -->
+               <div class="col-md-3 mb-3">
+                 <label for="inputState">Trạng thái</label>      
+                 <select id="inputState" class="form-control">
+                   <option selected>Bình thường</option>
+                   <option >Không hiển thị</option>
+                 </select>
+               </div>
+             </div>
+         </div>
+        <button class="btn btn-warning" type="button" routerLink = '/record/{{id}}'>Quay lại</button>
+      </form>
+  
+    </div>
+    <!-- End Main  -->
+  </div>

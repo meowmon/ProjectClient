@@ -1,3 +1,65 @@
-<p>
-  blood-exam works!
-</p>
+<div id="content">
+    <div class="card card-body section-view">
+      <form [formGroup] ="dataForm">
+        <div class="col-md-4 mb-4">
+          <h5>Thông tin xét nghiệm máu</h5>
+        </div>
+  
+        <div class="border-gray2">
+          <div class="form-row">
+            <div class="col-md-2 mb-4">
+              <label >Nhóm máu</label>
+              <input type="text" class="form-control" formControlName="blood_class" placeholder="Nhóm máu" value="" readonly>
+            </div>
+          </div>
+          <h6>Chỉ số chi tiết</h6>
+          <div class="form-row">
+            <div class="col-md-2 mb-2">
+              <label >WBC</label>
+              <input type="text" class="form-control" formControlName="wbc" placeholder="WBC" value="" readonly>
+            </div>
+            <div class="col-md-2 mb-2">
+              <label >RBC</label>
+              <input type="text" class="form-control" formControlName="rbc" placeholder="RBC" value="" readonly>
+            </div>
+            <div class="col-md-2 mb-2">
+              <label >HB</label>
+              <input type="text" class="form-control" formControlName="hb" placeholder="HB" value="" readonly>
+            </div>
+  
+            <div class="col-md-2 mb-3">
+              <label >HCT</label>
+              <input type="text" class="form-control" formControlName="hct" placeholder="HCT" value="" readonly>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label >MCV</label>
+              <input type="text" class="form-control" formControlName="mcv" placeholder="MCV" value="" readonly>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label >MCH</label>
+              <input type="text" class="form-control" formControlName="mch" placeholder="MCH" value="" readonly>
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label >Mô tả</label>
+            <textarea class="form-control" formControlName="descrip" aria-label="Mô tả"></textarea>
+          </div>
+        </div>
+  
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label >Kết luận</label>
+            <textarea class="form-control" formControlName="conclude" aria-label="Mô tả"></textarea>
+          </div>
+        </div>
+  
+        <button class="btn btn-warning" type="button" routerLink = '/record/{{id}}'>Quay lại</button>
+      </form>
+  
+    </div>
+    <!-- End Main  -->
+  </div>

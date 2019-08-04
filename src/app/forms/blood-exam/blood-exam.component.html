@@ -1,6 +1,6 @@
 <div id="content">
   <div class="card card-body section-view">
-    <form>
+    <form [formGroup] ="dataForm">
       <div class="col-md-4 mb-4">
         <h5>Thông tin xét nghiệm máu</h5>
       </div>
@@ -8,36 +8,36 @@
       <div class="border-gray2">
         <div class="form-row">
           <div class="col-md-2 mb-4">
-            <label for="validationDefault01">Nhóm máu</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="Nhóm máu" value="" required>
+            <label >Nhóm máu</label>
+            <input type="text" class="form-control" formControlName="blood_class" placeholder="Nhóm máu" value="" required>
           </div>
         </div>
         <h6>Chỉ số chi tiết</h6>
         <div class="form-row">
           <div class="col-md-2 mb-2">
-            <label for="validationDefault01">WBC</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="WBC" value="" required>
+            <label >WBC</label>
+            <input type="text" class="form-control" formControlName="wbc" placeholder="WBC" value="" required>
           </div>
           <div class="col-md-2 mb-2">
-            <label for="validationDefault01">RBC</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="WBC" value="" required>
+            <label >RBC</label>
+            <input type="text" class="form-control" formControlName="rbc" placeholder="RBC" value="" required>
           </div>
           <div class="col-md-2 mb-2">
-            <label for="validationDefault01">HB</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="HB" value="" required>
+            <label >HB</label>
+            <input type="text" class="form-control" formControlName="hb" placeholder="HB" value="" required>
           </div>
 
           <div class="col-md-2 mb-3">
-            <label for="validationDefault01">HCT</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="HCT" value="" required>
+            <label >HCT</label>
+            <input type="text" class="form-control" formControlName="hct" placeholder="HCT" value="" required>
           </div>
           <div class="col-md-2 mb-3">
-            <label for="validationDefault01">MCV</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="MCV" value="" required>
+            <label >MCV</label>
+            <input type="text" class="form-control" formControlName="mcv" placeholder="MCV" value="" required>
           </div>
           <div class="col-md-2 mb-3">
-            <label for="validationDefault01">MCH</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="MCH" value="" required>
+            <label >MCH</label>
+            <input type="text" class="form-control" formControlName="mch" placeholder="MCH" value="" required>
           </div>
         </div>
       </div>
@@ -45,58 +45,21 @@
 
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationDefault01">Mô tả</label>
-          <textarea class="form-control" aria-label="Mô tả"></textarea>
+          <label >Mô tả</label>
+          <textarea class="form-control" formControlName="descrip" aria-label="Mô tả"></textarea>
         </div>
       </div>
 
       <div class="form-row">
         <div class="col-md-6 mb-3">
-          <label for="validationDefault01">Kết luận</label>
-          <textarea class="form-control" aria-label="Mô tả"></textarea>
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label for="validationDefault01">Kết luận bệnh mắc phải</label>
-          <select class="form-control" name="select_projects" id="select_projects">
-            <option value="">Bình thường</option>
-            <optgroup label="Loại bệnh 1">
-              <option value="">Bệnh 1</option>
-            </optgroup>
-            <optgroup label="Loại bệnh 2">
-              <option value="">Bệnh 3</option>
-              <option value="">Bệnh 4</option>
-              <option value="">Bệnh 5</option>
-              <option value="">Bệnh 6</option>
-            </optgroup>
-            <optgroup label="Loại bệnh 3">
-              <option value="">Bệnh 7</option>
-              <option value="">Bệnh 8</option>
-              <option value="">Bệnh 9</option>
-              <option value="">Bệnh 10</option>
-            </optgroup>
-            <option value="">Không xác định</option>
-          </select>
+          <label >Kết luận</label>
+          <textarea class="form-control" formControlName="conclude" aria-label="Mô tả"></textarea>
         </div>
       </div>
 
 
-      <div class="form-row">
-        <!--    Set role for user    -->
-        <div class="col-md-3 mb-3">
-          <label for="inputState">Trạng thái</label>
-          <select id="inputState" class="form-control">
-            <option selected>Bình thường</option>
-            <option>Không hiển thị</option>
-          </select>
-        </div>
-      </div>
-
-
-      <a href="hosokham-chitiet.html"><button class="btn btn-default" type="button">Hủy bỏ</button></a>
-      <button class="btn btn-warning" type="submit">Lưu</button>
+      <a routerLink="/record/{{id}}"><button class="btn btn-default" type="button">Hủy bỏ</button></a>
+      <button class="btn btn-warning mx-5" type="button" (click)="onSubmit()">Lưu</button>
     </form>
 
   </div>

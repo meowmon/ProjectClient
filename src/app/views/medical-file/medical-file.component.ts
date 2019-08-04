@@ -19,6 +19,7 @@ export class MedicalFileComponent implements OnInit {
   ngOnInit() {
     this.fileService.loadData().subscribe(response =>{
       this.listData = response.body
+      this.listData = this.listData.reverse()
       console.log(response.body)
     })
     
